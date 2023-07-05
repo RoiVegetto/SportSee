@@ -4,7 +4,7 @@ import LogoSidebar from '../IconSidebar/IconSidebar';
 
 function Sidebar() {
   return (
-    <navbar className="sidebar">
+    <nav className="sidebar">
       <div className='icon-sidebar'>
         <LogoSidebar icon="/Images/zen.png" />
         <LogoSidebar icon="/Images/swim.png" />
@@ -12,7 +12,7 @@ function Sidebar() {
         <LogoSidebar icon="/Images/dumbbell.png" />
       </div>
       <p>Copiryght, SportSee 2020</p>
-    </navbar>
+    </nav>
   );
 }
 
