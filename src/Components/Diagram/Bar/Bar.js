@@ -1,43 +1,43 @@
 import React from "react";
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, BarChart, } from "recharts";
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from "recharts";
 import "./Bar.css";
 
 const data = [
-  { day: 'monday', pageviews: 1000, visitor: 300},
-  { day: 'Tuesday', pageviews: 1500, visitor: 500},
-  { day: 'Wednesday', pageviews: 2000, visitor: 800},
+  { day: '1', 'Poids (kg)': 1000, 'Calories brûlées (kCal)' : 300 },
+  { day: '2', 'Poids (kg)': 1500, 'Calories brûlées (kCal)': 500 },
+  { day: '3', 'Poids (kg)': 2000, 'Calories brûlées (kCal)': 800 },
+  { day: '4', 'Poids (kg)': 1000, 'Calories brûlées (kCal)': 300 },
+  { day: '5', 'Poids (kg)': 1500, 'Calories brûlées (kCal)': 500 },
+  { day: '6', 'Poids (kg)': 2000, 'Calories brûlées (kCal)': 800 },
+  { day: '7', 'Poids (kg)': 2000, 'Calories brûlées (kCal)': 800 },
+  { day: '9', 'Poids (kg)': 2000, 'Calories brûlées (kCal)': 800 },
+  { day: '10', 'Poids (kg)': 2000, 'Calories brûlées (kCal)': 800 },
 ];
 
 const Recharts = () => {
 
-  const lineColors = ['#8884d8', '#82ca9d']
-  const barColors = ['#8884d8', '#82ca9d']
+  const barColors = ['#282D30', '#E60000'];
 
-  const lineCustomization = {
-    strokeWidth:2,
-    dot: { r:4 },
-    activeDot: { r:8 },
-  }
   const barCustomization = {
-    barSize: 30,
-    radis: [ 5, 5, 0, 0],
-    label: { position: 'top'},
-  }
+    barSize: 7,
+    radius: [3, 3, 0, 0],
+  };
 
   return (
     <div className="main-container">
 
-      <LineChart width={600} height={300} data={data}>
+      <BarChart width={835} height={320} data={data}>
         <XAxis dataKey="day" />
-        <CartesianGrid strokeDashArray="3 3" />
+        <YAxis />
+        <CartesianGrid strokeDasharray="5 0" />
         <Tooltip />
         <Legend />
-        <Line type="monotone" dataKey="pageviews" stroke={lineColors[0]} {...lineCustomization} />
-        <Line type="monotone" dataKey="pageviews" stroke={lineColors[0]} {...lineCustomization} />
-      </LineChart>
+        <Bar dataKey="Poids (kg)" fill={barColors[0]} {...barCustomization} />
+        <Bar dataKey="Calories brûlées (kCal)" fill={barColors[1]} {...barCustomization} />
+      </BarChart>
 
     </div>
-  )
-} 
+  );
+};
 
 export default Recharts;
