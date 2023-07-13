@@ -1,0 +1,25 @@
+.main-container {
+    position: relative;
+    max-width: 835px;
+}
+
+.main-container h2 {
+    position: absolute;
+}
+
+.recharts-legend-icon {
+    border-radius: 100%;
+}
+
+.recharts-legend-icon-round {
+    border-radius: 50%;
+  }
+  
+  .legend-icon-round {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 5px;
+  }
+  

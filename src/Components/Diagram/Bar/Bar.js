@@ -48,7 +48,9 @@ const Recharts = () => {
 
   return (
     <div className="main-container">
-      <BarChart width={835} height={320} data={data}>
+      <h2>Votre titre</h2>
+        <div className="chart-container">
+        <BarChart width={835} height={320} data={data}>
         <XAxis dataKey="day" />
         <YAxis yAxisId="left" hide />
         <YAxis
@@ -82,6 +84,7 @@ const Recharts = () => {
           yAxisId="calories"
         />
       </BarChart>
+    </div>
     </div>
   );
 };
