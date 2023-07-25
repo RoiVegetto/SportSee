@@ -1,0 +1,46 @@
+* {
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+html, body {
+    height: 100vh;
+    margin: 0 auto;
+    padding: 0;
+}
+
+.App {
+    min-height: 100vh;
+}
+
+.main {
+    display: flex;
+}
+
+.container-main {
+    margin: 0 0 0 109px;
+}
+
+main {
+    flex-grow: 1;
+}
+
+.container-graph {
+    margin: 77px 0 0 0;
+}
+
+.container-graph-second {
+    display: flex;
+    max-width: 835px;
+    margin: 28px 0;
+    justify-content: space-between;
+}
+
+
+.container-global {
+    display: flex;
+}
+
+.container-count {
+    margin: 77px 0 0 31px;
+}

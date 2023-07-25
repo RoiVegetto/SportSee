@@ -1,0 +1,22 @@
+.sidebar {
+    background-color: #020203;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    min-height: calc(100vh - 91px);
+    width: 117px;
+    gap: 100px;
+}
+
+.icon-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.sidebar p {
+    color: #FFFFFF;
+    writing-mode: vertical-rl;
+    font-size: 12px;
+    transform: rotate(180deg);
+}

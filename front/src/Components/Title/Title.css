@@ -1,0 +1,12 @@
+.container-title {
+    margin: 70px 0 0 0;
+    color: #000;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px;
+}
+
+.container-title p {
+    margin: 40px 0 0 0;
+}

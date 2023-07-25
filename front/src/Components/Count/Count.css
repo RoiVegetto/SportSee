@@ -1,0 +1,32 @@
+.count {
+    display: flex;
+    background-color: #FBFBFB;
+    margin: 0 0 39px 0;
+    border-radius: 5px;
+}
+
+.icon-count {
+    width: 60px;
+    height: 60px;
+    margin: 32px 24px 32px 32px;
+}
+
+.number-count {
+    margin: 32px 51px 32px 0;
+}
+
+.number {
+    color: #282D30;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 24px;
+}
+
+.name-count {
+    color: #74798C;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px;
+}
