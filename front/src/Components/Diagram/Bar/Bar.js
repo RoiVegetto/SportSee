@@ -10,6 +10,22 @@ import {
 } from 'recharts';
 import './Bar.css';
 
+const CustomTooltip = ({ active, payload }) => {
+  if (active && payload && payload.length) {
+    return (
+      <div className="container-tooltip">
+        <p className="bar-tooltip">
+          {`${payload[0].value} kg`}
+          <br/>
+          {`${payload[1].value} Kcal`}
+        </p>
+      </div>
+    );
+  }
+  return null;
+};
+
+
 const Recharts = ({ data }) => {
   return (
     <div className="container-barchart">
@@ -49,7 +65,7 @@ const Recharts = ({ data }) => {
           horizontal={true}
           vertical={false}
         />
-        <Tooltip contentStyle={{ backgroundColor: 'red', color: 'white' }} />
+        <Tooltip content={<CustomTooltip />} />
         <text x={32} y={42}>
           <tspan className="title-barchart">Activité quotidienne</tspan>
         </text>

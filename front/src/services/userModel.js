@@ -19,9 +19,9 @@ export const performancesModel = (data) => {
     kindMapping[key] = value;
   });
 
-  const mappedData = data.data.map((item) => ({
+  const mappedData = data.data.map((item, index, array) => ({
     value: item.value,
-    kind: kindMapping[item.kind.toString()],
+    kind: kindMapping[array[(index + 5) % array.length].kind.toString()],
   }));
 
   return {

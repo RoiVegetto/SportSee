@@ -13,3 +13,16 @@
     font-weight: 500;
     line-height: 24px;
 }
+
+.bar-tooltip {
+    background: #E60000;
+    width: 39px;
+    flex-shrink: 0;
+    color: #FFF;
+    text-align: center;
+    font-size: 7px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px;
+    margin: 4px 0;
+}

@@ -2,15 +2,6 @@ import React from 'react';
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis } from 'recharts';
 import './Radar.css';
 
-/*const data = [
-  { kind: 'Intensité', data: 120, fullMark: 150 },
-  { kind: 'Vitesse', data: 98, fullMark: 150 },
-  { kind: 'Force', data: 86, fullMark: 150 },
-  { kind: 'Endurance', data: 99, fullMark: 150 },
-  { kind: 'Energie', data: 105, fullMark: 150 },
-  { kind: 'Cardio', data: 122, fullMark: 150 },
-];*/
-
 const RadarCharts = ({ data }) => {
   return (
     <div className="container-radar">
