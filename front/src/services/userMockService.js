@@ -19,6 +19,6 @@ export const getDailyPerformance = (userId) => {
 };
 
 export const getDailyMain = (userId) => {
-  const data = mainData.find((elem) => elem.userId === parseInt(userId));
+  const data = mainData.find((elem) => elem.id === parseInt(userId));
   return mainModel(data);
 };

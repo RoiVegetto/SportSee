@@ -2,14 +2,11 @@ import React from 'react';
 import { ResponsiveContainer, PieChart, Pie, Cell } from 'recharts';
 import './Circle.css';
 
-const Score = [{ todayScore: 0.14 }];
+const CircleChart = ({ data }) => {
 
-const CircleChart = () => {
-  const todayScore = Score[0].todayScore;
-
-  const data = [
-    { name: 'Atteint', value: todayScore * 100 },
-    { name: 'Restant', value: (1 - todayScore) * 100 },
+  const chartData = [
+    { name: 'Atteint', value: data * 100 },
+    { name: 'Restant', value: (1 - data) * 100 },
   ];
 
   const renderLabel = ({
@@ -20,7 +17,7 @@ const CircleChart = () => {
     outerRadius,
     name,
   }) => {
-    return null; // Hide all percentages
+    return null;
   };
 
   const COLORS = ['red', 'transparent'];
@@ -30,7 +27,7 @@ const CircleChart = () => {
       <ResponsiveContainer width={258} height={263}>
         <PieChart>
           <Pie
-            data={data}
+            data={chartData}
             dataKey="value"
             startAngle={90}
             endAngle={450}
@@ -40,14 +37,13 @@ const CircleChart = () => {
             label={renderLabel}
             strokeLinecap="round"
           >
-            {data.map((entry, index) => (
+            {chartData.map((entry, index) => (
               <Cell
                 key={`cell-${index}`}
                 fill={COLORS[index % COLORS.length]}
               />
             ))}
           </Pie>
-          {/* New text element for displaying the percentage at the center */}
           <text
             x="50%"
             y="50%"
@@ -57,15 +53,15 @@ const CircleChart = () => {
             fontSize="24px"
             fontWeight="bold"
           >
-            {`${(todayScore * 100).toFixed(0)}%`}
+            {`${(data * 100).toFixed(0)}%`}
           </text>
           <text
             x="50%"
-            y="60%" // Adjust the y value to control the vertical position
+            y="60%"
             textAnchor="middle"
             dominantBaseline="middle"
             fill="black"
-            fontSize="12px" // Adjust the font size if needed
+            fontSize="12px"
           >
             de votre objectif
           </text>

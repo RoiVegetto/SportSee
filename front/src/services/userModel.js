@@ -34,8 +34,17 @@ export const performancesModel = (data) => {
 export const mainModel = (data) => {
   return {
     userId: data.id,
-    userInfos: { ...data.userInfos },
+    userInfos: {
+      firstName: data.userInfos.firstName,
+      lastName: data.userInfos.lastName,
+      age: data.userInfos.age,
+    },
     todayScore: data.todayScore || data.score,
-    keyData: { ...data.keyData },
+    keyData: {
+      calorieCount: data.keyData.calorieCount,
+      proteinCount: data.keyData.proteinCount,
+      carbohydrateCount: data.keyData.carbohydrateCount,
+      lipidCount: data.keyData.lipidCount,
+    },
   };
 };

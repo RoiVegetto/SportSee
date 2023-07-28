@@ -6,7 +6,7 @@ function Count(props) {
     <div className="count">
       <img src={props.icon} className="icon-count" alt="icone de" />
       <div className="number-count">
-        <p className="number">1.930kcal</p>
+        <p className="number">{props.data}</p>
         <p className="name-count">{props.nameCount}</p>
       </div>
     </div>
@@ -14,3 +14,4 @@ function Count(props) {
 }
 
 export default Count;
+

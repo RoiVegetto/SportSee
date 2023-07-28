@@ -10,6 +10,7 @@ import CircleChart from './Components/Diagram/Circle/Circle';
 import {
   getDailyActivity,
   getDailyPerformance,
+  getDailyMain,
 } from './services/userMockService';
 import Count from './Components/Count/Count';
 
@@ -25,8 +26,9 @@ function App() {
     try {
       const userActivity = getDailyActivity(userId);
       const userPerformance = getDailyPerformance(userId);
+      const userMain = getDailyMain(userId);
 
-      setData({ userActivity, userPerformance });
+      setData({ userActivity, userPerformance, userMain });
     } catch (error) {
       console.log(error);
     } finally {
@@ -48,21 +50,21 @@ function App() {
             'Loading...'
           ) : (
             <div className="container-main">
-              <Title />
+              <Title data={data.userMain.userInfos.firstName} />
               <div className="container-global">
                 <div className="container-graph">
                   <Recharts data={data.userActivity.sessions} />
                   <div className="container-graph-second">
                     <DayLine />
                     <RadarCharts data={data.userPerformance.data} />
-                    <CircleChart />
+                    <CircleChart data={data.userMain.todayScore}/>
                   </div>
                 </div>
                 <div className="container-count">
-                  <Count icon="/Images/fire.png" nameCount="Calories" />
-                  <Count icon="/Images/protein.png" nameCount="Proteines" />
-                  <Count icon="/Images/apple.png" nameCount="Glucides" />
-                  <Count icon="/Images/fat.png" nameCount="Lipides" />
+                  <Count icon="/Images/fire.png" nameCount="Calories" data={data.userMain.keyData.calorieCount} />
+                  <Count icon="/Images/protein.png" nameCount="Proteines" data={data.userMain.keyData.proteinCount} />
+                  <Count icon="/Images/apple.png" nameCount="Glucides" data={data.userMain.keyData.carbohydrateCount} />
+                  <Count icon="/Images/fat.png" nameCount="Lipides" data={data.userMain.keyData.lipidCount} />
                 </div>
               </div>
             </div>

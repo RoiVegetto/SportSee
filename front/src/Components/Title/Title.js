@@ -1,11 +1,10 @@
 import React from 'react';
 import './Title.css';
 
-function Title(props) {
-  const firstName = props.firstName;
+function Title({ data }) {
   return (
     <div className="container-title">
-      <h1>Bonjour {firstName}</h1>
+      <h1>Bonjour {data}</h1>
       <p>Félicitation ! Vous avez explosé vos objectifs hier</p>
     </div>
   );
