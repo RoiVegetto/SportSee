@@ -57,14 +57,34 @@ function App() {
                   <div className="container-graph-second">
                     <DayLine />
                     <RadarCharts data={data.userPerformance.data} />
-                    <CircleChart data={data.userMain.todayScore}/>
+                    <CircleChart data={data.userMain.todayScore} />
                   </div>
                 </div>
                 <div className="container-count">
-                  <Count icon="/Images/fire.png" nameCount="Calories" data={data.userMain.keyData.calorieCount} />
-                  <Count icon="/Images/protein.png" nameCount="Proteines" data={data.userMain.keyData.proteinCount} />
-                  <Count icon="/Images/apple.png" nameCount="Glucides" data={data.userMain.keyData.carbohydrateCount} />
-                  <Count icon="/Images/fat.png" nameCount="Lipides" data={data.userMain.keyData.lipidCount} />
+                  <Count
+                    icon="/Images/fire.png"
+                    nameCount="Calories"
+                    data={data.userMain.keyData.calorieCount}
+                    weight="kCal"
+                  />
+                  <Count
+                    icon="/Images/protein.png"
+                    nameCount="Proteines"
+                    data={data.userMain.keyData.proteinCount}
+                    weight="g"
+                  />
+                  <Count
+                    icon="/Images/apple.png"
+                    nameCount="Glucides"
+                    data={data.userMain.keyData.carbohydrateCount}
+                    weight="g"
+                  />
+                  <Count
+                    icon="/Images/fat.png"
+                    nameCount="Lipides"
+                    data={data.userMain.keyData.lipidCount}
+                    weight="g"
+                  />
                 </div>
               </div>
             </div>

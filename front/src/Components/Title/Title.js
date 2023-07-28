@@ -4,7 +4,9 @@ import './Title.css';
 function Title({ data }) {
   return (
     <div className="container-title">
-      <h1>Bonjour {data}</h1>
+      <h1>
+        Bonjour <span className="name">{data}</span>
+      </h1>
       <p>Félicitation ! Vous avez explosé vos objectifs hier</p>
     </div>
   );
