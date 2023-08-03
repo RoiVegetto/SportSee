@@ -20,6 +20,7 @@ const CircleChart = ({ data }) => {
   };
 
   const COLORS = ['red', 'transparent'];
+  const cornerRadius = '50%';
 
   return (
     <div className="container-circle">
@@ -35,6 +36,7 @@ const CircleChart = ({ data }) => {
             labelLine={false}
             label={renderLabel}
             strokeLinecap="round"
+            cornerRadius={cornerRadius}
           >
             {chartData.map((entry, index) => (
               <Cell
