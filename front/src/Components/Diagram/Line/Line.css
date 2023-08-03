@@ -25,3 +25,16 @@
     max-width: 147px;
 }
 
+.recharts-cartesian-axis-tick-value {
+    color: #FFFFFF;
+    fill: #FFF;
+}
+
+.recharts-surface .recharts-layer {
+    max-width: 80px;
+    color: blue;
+}
+
+.blabla {
+    width: 50px;
+}

@@ -16,11 +16,11 @@
 
 .bar-tooltip {
     background: #E60000;
-    width: 39px;
+    width: 45px;
     flex-shrink: 0;
     color: #FFF;
     text-align: center;
-    font-size: 7px;
+    font-size: 10px;
     font-style: normal;
     font-weight: 500;
     line-height: 24px;

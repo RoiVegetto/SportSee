@@ -7,21 +7,32 @@ export const activitiesModel = (data) => {
     userId: data.userId,
     sessions: data.sessions.map((session) => ({
       ...session,
-      dayOfMonth: session.day.substring(8), // Extraction des deux derniers caractères
+      dayOfMonth: session.day.substring(8),
     })),
   };
+};
+
+const translationDictionary = {
+  cardio: 'Cardio',
+  energy: 'Energie',
+  endurance: 'Endurance',
+  strength: 'Force',
+  speed: 'Vitesse',
+  intensity: 'Intensité',
 };
 
 export const performancesModel = (data) => {
   const kindMapping = {};
 
   Object.entries(data.kind).forEach(([key, value]) => {
-    kindMapping[key] = value;
+    kindMapping[key] = translationDictionary[value] || value;
   });
 
-  const mappedData = data.data.map((item, index, array) => ({
-    value: item.value,
-    kind: kindMapping[array[(index + 5) % array.length].kind.toString()],
+  const reversedData = data.data.slice().reverse();
+
+  const mappedData = reversedData.map((item, index, array) => ({
+    value: array[index % array.length].value,
+    kind: kindMapping[array[index % array.length].kind.toString()],
   }));
 
   return {
@@ -39,12 +50,24 @@ export const mainModel = (data) => {
       lastName: data.userInfos.lastName,
       age: data.userInfos.age,
     },
-    todayScore: data.todayScore || data.score,
+    todayScore: data.todayScore,
+    score: data.score,
     keyData: {
       calorieCount: data.keyData.calorieCount,
       proteinCount: data.keyData.proteinCount,
       carbohydrateCount: data.keyData.carbohydrateCount,
       lipidCount: data.keyData.lipidCount,
     },
+  };
+};
+
+
+
+export const sessionModel = (data) => {
+  return {
+    userId: data.userId,
+    sessions: data.sessions.map((session) => ({
+      ...session,
+    })),
   };
 };

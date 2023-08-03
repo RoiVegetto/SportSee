@@ -11,35 +11,32 @@ import {
   getDailyActivity,
   getDailyPerformance,
   getDailyMain,
-} from './services/userMockService';
+  getDailySession,
+} from './services/userApiService';
 import Count from './Components/Count/Count';
-
 function App() {
   const [data, setData] = useState({});
   const [isLoading, setLoading] = useState(true);
-
   /**
    * Get data of user
    * @param {string} userId - the id of user
    */
-  const getData = (userId) => {
+  const getData = async (userId) => {
     try {
-      const userActivity = getDailyActivity(userId);
-      const userPerformance = getDailyPerformance(userId);
-      const userMain = getDailyMain(userId);
-
-      setData({ userActivity, userPerformance, userMain });
+      const userActivity = await getDailyActivity(userId);
+      const userPerformance = await getDailyPerformance(userId);
+      const userMain = await getDailyMain(userId);
+      const userSession = await getDailySession(userId);
+      setData({ userActivity, userPerformance, userMain, userSession });
     } catch (error) {
       console.log(error);
     } finally {
       setLoading(false);
     }
   };
-
   useEffect(() => {
-    getData(12);
+    getData(18);
   }, []);
-
   return (
     <div className="App">
       <Navbar logo="/Images/logoSportSee.png" />
@@ -55,9 +52,11 @@ function App() {
                 <div className="container-graph">
                   <Recharts data={data.userActivity.sessions} />
                   <div className="container-graph-second">
-                    <DayLine />
+                    <DayLine data={data.userSession.sessions} />
                     <RadarCharts data={data.userPerformance.data} />
-                    <CircleChart data={data.userMain.todayScore} />
+                    <CircleChart
+                      data={data.userMain.todayScore || data.userMain.score}
+                    />
                   </div>
                 </div>
                 <div className="container-count">
@@ -94,5 +93,4 @@ function App() {
     </div>
   );
 }
-
 export default App;

@@ -1,7 +1,13 @@
 import { activity } from '../mocks/activity';
 import { mainData } from '../mocks/maindata';
 import { performance } from '../mocks/performance';
-import { activitiesModel, mainModel, performancesModel } from './userModel';
+import { session } from '../mocks/session';
+import {
+  activitiesModel,
+  mainModel,
+  performancesModel,
+  sessionModel,
+} from './userModel';
 
 /**
  * Get daily activity of user
@@ -21,4 +27,9 @@ export const getDailyPerformance = (userId) => {
 export const getDailyMain = (userId) => {
   const data = mainData.find((elem) => elem.id === parseInt(userId));
   return mainModel(data);
+};
+
+export const getDailySession = (userId) => {
+  const data = session.find((elem) => elem.userId === parseInt(userId));
+  return sessionModel(data);
 };

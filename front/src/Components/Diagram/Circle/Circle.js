@@ -3,7 +3,6 @@ import { ResponsiveContainer, PieChart, Pie, Cell } from 'recharts';
 import './Circle.css';
 
 const CircleChart = ({ data }) => {
-
   const chartData = [
     { name: 'Atteint', value: data * 100 },
     { name: 'Restant', value: (1 - data) * 100 },
@@ -44,9 +43,12 @@ const CircleChart = ({ data }) => {
               />
             ))}
           </Pie>
+          <text className="title-score" x="30px" y="35px">
+            Score
+          </text>
           <text
             x="50%"
-            y="50%"
+            y="45%"
             textAnchor="middle"
             dominantBaseline="middle"
             fill="black"
@@ -57,13 +59,16 @@ const CircleChart = ({ data }) => {
           </text>
           <text
             x="50%"
-            y="60%"
+            y="55%"
             textAnchor="middle"
             dominantBaseline="middle"
-            fill="black"
-            fontSize="12px"
+            fill="#74798C"
+            className="pourcentage-objectif"
           >
-            de votre objectif
+            de votre
+            <tspan x="50%" dy="1.5em" textAnchor="middle">
+              objectif
+            </tspan>
           </text>
         </PieChart>
       </ResponsiveContainer>
