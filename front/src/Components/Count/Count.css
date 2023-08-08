@@ -30,3 +30,19 @@
     font-weight: 500;
     line-height: 24px;
 }
+
+@media screen and (max-width:1400px){
+    .count {
+        margin: 0;
+        width: 171.13px;
+    }
+
+    .icon-count {
+        width: 45px;
+        height: 45px;
+    }
+
+    .icon-count, .number-count {
+        margin: 10px;
+    }
+}

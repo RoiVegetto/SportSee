@@ -14,6 +14,8 @@ import {
   getDailySession,
 } from './services/userApiService';
 import Count from './Components/Count/Count';
+import Error from './Components/Error/Error';
+
 function App() {
   const [data, setData] = useState({});
   const [isLoading, setLoading] = useState(true);
@@ -28,15 +30,23 @@ function App() {
       const userMain = await getDailyMain(userId);
       const userSession = await getDailySession(userId);
       setData({ userActivity, userPerformance, userMain, userSession });
+      setLoading(false);
     } catch (error) {
       console.log(error);
-    } finally {
-      setLoading(false);
     }
   };
+
+  const handleProfileChange = (userId) => {
+    setLoading(true);
+    getData(userId);
+  };
+
+  /* eslint-disable react-hooks/exhaustive-deps */
   useEffect(() => {
-    getData(18);
+    handleProfileChange(12);
   }, []);
+  /* eslint-enable react-hooks/exhaustive-deps */
+
   return (
     <div className="App">
       <Navbar logo="/Images/logoSportSee.png" />
@@ -44,10 +54,26 @@ function App() {
         <Sidebar />
         <main>
           {isLoading ? (
-            'Loading...'
+            <Error logo="/Images/logoSportSee.png" />
           ) : (
             <div className="container-main">
-              <Title data={data.userMain.userInfos.firstName} />
+              <div className="container-title-switch">
+                <Title data={data.userMain.userInfos.firstName} />
+                <div className="container-switch">
+                  <button
+                    className="button"
+                    onClick={() => handleProfileChange(12)}
+                  >
+                    Profil 12
+                  </button>
+                  <button
+                    className="button"
+                    onClick={() => handleProfileChange(18)}
+                  >
+                    Profil 18
+                  </button>
+                </div>
+              </div>
               <div className="container-global">
                 <div className="container-graph">
                   <Recharts data={data.userActivity.sessions} />

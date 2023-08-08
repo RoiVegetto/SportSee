@@ -21,6 +21,7 @@ export const fetchdata = async (url) => {
  * @param {string} userId - the id of user
  * @returns
  */
+
 export const getDailyActivity = async (userId) => {
   const apiUrl = `${baseUrl}/user/${userId}/activity`;
   const data = await fetchdata(apiUrl);

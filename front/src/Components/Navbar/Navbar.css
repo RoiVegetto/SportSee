@@ -20,17 +20,23 @@
 }
 
 .welcome {
-    margin: 0 0 0 150px;
+    margin: 0 0 0 10.4%; /*150px*/
 }
 
 .profil {
-    margin: 0 0 0 204px;
+    margin: 0 0 0 14.15%; /*204px*/
 }
 
 .setting {
-    margin: 0 0 0 219px;
+    margin: 0 0 0 15.2%; /*219px*/
 }
 
 .community {
-    margin: 0 0 0 196px;
+    margin: 0 0 0 13.6%; /*196px*/
 }
+
+@media screen and (max-width:1400px){
+    .welcome, .profil, .setting, .community {
+        margin: 0 auto;
+    }
+} 

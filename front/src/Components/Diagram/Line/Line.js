@@ -34,9 +34,15 @@ const DayLine = ({ data }) => {
       >
         <XAxis dataKey="day" tickLine={false} axisLine={false} />
         <YAxis hide={true} />
-        <Tooltip content={<CustomTooltip />} />
+        <Tooltip
+          content={<CustomTooltip />}
+          cursor={{
+            stroke: 'opacity: 0.975, background: #000',
+            strokeWidth: 200,
+          }}
+        />
         <Line
-          type="monotone"
+          type="natural"
           dataKey="sessionLength"
           stroke={lineColors[0]}
           {...lineCustomization}

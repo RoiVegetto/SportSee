@@ -4,7 +4,7 @@
     flex-direction: column;
     justify-content: space-around;
     min-height: calc(100vh - 91px);
-    width: 117px;
+    min-width: 117px;
     gap: 100px;
 }
 
