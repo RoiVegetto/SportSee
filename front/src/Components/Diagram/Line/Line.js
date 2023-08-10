@@ -32,13 +32,20 @@ const DayLine = ({ data }) => {
         data={data}
         margin={{ left: 20, right: 20 }}
       >
-        <XAxis dataKey="day" tickLine={false} axisLine={false} />
-        <YAxis hide={true} />
+        <XAxis
+          dataKey="day"
+          tickLine={false}
+          axisLine={false}
+          tick={{ fill: '#FFFFFF', opacity: '0.5' }}
+          stroke="var(--text-color-quaternary)"
+        />
+        <YAxis padding={{ bottom: 20 }} domain={[0, 100]} hide={true} />
         <Tooltip
           content={<CustomTooltip />}
           cursor={{
-            stroke: 'opacity: 0.975, background: #000',
-            strokeWidth: 200,
+            stroke: '#d10000',
+            strokeWidth: 100,
+            strokeLinejoin: 'round',
           }}
         />
         <Line
