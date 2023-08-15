@@ -1,0 +1,13 @@
+.not-found-profil {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.not-found-profil p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 400px;
+    font-size: 30px;
+}

@@ -5,9 +5,9 @@ function Error(props) {
   return (
     <div className="error">
       <p>
-        Vos informations sont en cours de chargement ...
+        Nos services sont indisponible pour le moment.
         <br />
-        Merci de patienter
+        Merci de revenir plus tard.
       </p>
       <img src={props.logo} alt="logo de SportSee" className="logo" />
     </div>

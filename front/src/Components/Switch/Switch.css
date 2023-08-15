@@ -1,0 +1,21 @@
+.select {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 80%;
+    align-items: center;
+}
+
+.switch-name {
+    background-color: #F00;
+    height: 60px;
+    width: 110px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px 5px;
+    color: white;
+    margin: 10px 0 0 0;
+    text-decoration: none;
+    font-size: 20px;
+}

@@ -6,14 +6,20 @@ const baseUrl = 'http://localhost:3000';
  * @param {string} url
  * @returns fetched data or throws an Error
  */
+// rajouter un try catch pour le cas d'erreur
 export const fetchdata = async (url) => {
-  const response = await fetch(url);
-  if (response.ok === false) {
-    throw new Error('Failed to fetch');
-  }
+  try {
+    const response = await fetch(url);
+    if (response.ok === false) {
+      throw new Error('Failed to fetch');
+    }
 
-  const { data } = await response.json();
-  return data;
+    const { data } = await response.json();
+    return data;
+  } catch (error) {
+    console.error('An error occurred:', error.message);
+    throw error;
+  }
 };
 
 /**

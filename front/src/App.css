@@ -73,7 +73,7 @@ main {
         flex-wrap: wrap;
         margin: 25px 25px 0 0;
         justify-content: space-between;
-        width: 835px;
+        max-width: 835px;
     }
         .container-global {
         flex-direction: column-reverse;
