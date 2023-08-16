@@ -21,35 +21,47 @@ function MainContent() {
   const [data, setData] = useState({});
   const [isLoading, setLoading] = useState(true);
   const [isError, setError] = useState(false);
+  const [isID, setID] = useState(false);
   /**
    * Get data of user
    * @param {string} userId - the id of user
    */
+
   useEffect(() => {
-    const getData = async () => {
+    const fetchData = async () => {
       try {
-        const userActivity = await getDailyActivity(userId);
-        const userPerformance = await getDailyPerformance(userId);
-        const userMain = await getDailyMain(userId);
-        const userSession = await getDailySession(userId);
-        setData({ userActivity, userPerformance, userMain, userSession });
-        setLoading(false);
+        const response = await fetch(`http://localhost:3000/user/${userId}`);
+        if (response.status === 404) {
+          setID(true);
+          setLoading(false);
+        }
+        if (response.ok) {
+          setID(false);
+          const userActivity = await getDailyActivity(userId);
+          const userPerformance = await getDailyPerformance(userId);
+          const userMain = await getDailyMain(userId);
+          const userSession = await getDailySession(userId);
+          setData({ userActivity, userPerformance, userMain, userSession });
+          setLoading(false);
+        }
       } catch (error) {
-        console.error('An error occurred:', error.message);
+        console.error('An error occurred while checking user ID:', error);
         setError(true);
       }
     };
 
     setLoading(true);
-    getData();
+    fetchData();
   }, [userId]);
 
   return (
     <main>
       {isError ? (
+        <Error logo="/Images/logoSportSee.png" />
+      ) : isID ? (
         <NotFoundProfil logo="/Images/logoSportSee.png" />
       ) : isLoading ? (
-        <Error logo="/Images/logoSportSee.png" />
+        <div>Loading...</div>
       ) : (
         <div className="container-main">
           <div className="container-title-switch">
