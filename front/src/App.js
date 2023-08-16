@@ -16,7 +16,7 @@ function App() {
             <Routes>
               <Route path="/" element={<Switch />} />
               <Route path="/user/:userId" element={<MainContent />} />
-              <Route path="/*" element={<NotFoundPage />} />
+              <Route path="/*" element={<NotFoundPage logo="/Images/logoSportSee.png" />} />
             </Routes>
           </main>
         </div>

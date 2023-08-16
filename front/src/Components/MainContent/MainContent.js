@@ -15,6 +15,7 @@ import {
   getDailySession,
 } from '../../services/userApiService';
 import NotFoundProfil from '../NotFoundProfil/NotFoundProfil';
+import Loading from '../Loading/Loading';
 
 function MainContent() {
   const { userId } = useParams();
@@ -61,7 +62,7 @@ function MainContent() {
       ) : isID ? (
         <NotFoundProfil logo="/Images/logoSportSee.png" />
       ) : isLoading ? (
-        <div>Loading...</div>
+        <Loading logo="/Images/logoSportSee.png" />
       ) : (
         <div className="container-main">
           <div className="container-title-switch">

@@ -1,11 +1,10 @@
-.not-found-page {
-    margin: 50px 0 0 0;
+.Loading {
     display: flex;
     align-items: center;
     flex-direction: column;
 }
 
-.not-found-page p {
+.Loading p {
     display: flex;
     align-items: center;
     justify-content: center;
